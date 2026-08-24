@@ -35,7 +35,8 @@ The analysis is using the sales data on a year period from 1 July 2025 - 30 June
 | `payment_date` | Date of payment |
 
 </details>
+Note: Due to confidentiality, the sales data will not be included
 
 Tools:
   1. Excel
-  2. Python (accessed with Google Colab)
+  2. Python (run with Google Colab)
