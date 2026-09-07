@@ -1,10 +1,10 @@
 # K-means-clustering
 K-means clustering to group customers based on their purchase behavior
 
-Objective:
+# Objective:
 To group the customers based on their RFM (Recency, Frequency, and Monetary). The result can later be used for targeted marketing.
 
-Data:
+# Data:
 The analysis is using the sales data on a year period from 1 July 2025 - 30 June 2026. Consist of 13751 rows of data, each row contains:
   <details>
 <summary>Show columns</summary>
@@ -37,6 +37,28 @@ The analysis is using the sales data on a year period from 1 July 2025 - 30 June
 </details>
 Note: Due to confidentiality, the sales data will not be included
 
-Tools:
+# Tools:
   1. Excel
   2. Python (run with Google Colab)
+
+# Methodology:
+  1.	Data gathering
+  2.	Data cleaning
+  Rows containing missing data is deleted. In this case, any purchases made by non shop members is deleted since no customer name will be recorded. 
+
+  3.	RFM Feature engineering
+  Utilizing the pivot table, the data is turned to show the RFM features:
+
+  Recency: substract the latest purchase date of a customer from the set current date
+  Frequency: count the number of purchases made by each customer
+  Monetary: calculate the total amount of purchase from each customer
+
+  4.	Data transform
+  It is common for data to be skewed in their distribution due to outliers. But in this case, removing outliers might be not an option because it indicates customers with very high purchase amount and frequency. Keeping them as they are is also not possible because K-means clustering is highly sensitive to extreme values.
+  Log transforming is one of the common method to address skewed distribution. This makes the extreme data have lesser influence to the clustering process then before.
+
+  5.	Feature scaling
+  Since K-means clustering calculates the distance between data points, different scales between the RFM features will makes the result disproportional. Scaling levels the weight between features so each will have roughly the same influence.
+
+  6.	Engage K-means Clustering
+
