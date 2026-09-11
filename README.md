@@ -1,11 +1,11 @@
 # K-means-clustering
 K-means clustering to group customers based on their purchase behavior
 
-# Objective:
+### Objective
 To group the customers based on their RFM (Recency, Frequency, and Monetary). The result can later be used for targeted marketing.
 
-# Data:
-The analysis is using the sales data on a year period from 1 July 2025 - 30 June 2026. Consist of 13751 rows of data, each row contains:
+### Data
+The analysis is using the sales data from a small retail shop on a year period from 1 July 2025 - 30 June 2026. Consist of 13751 rows of data, each row contains:
   <details>
 <summary>Show columns</summary>
 
@@ -37,11 +37,12 @@ The analysis is using the sales data on a year period from 1 July 2025 - 30 June
 </details>
 Note: Due to confidentiality, the sales data will not be included
 
-# Tools:
+### Tools
   1. Excel
-  2. Python (run with Google Colab)
+  2. Language: Python
+  3. Libraries: Pandas, Matplotlib, Seaborn, Numpy, Scikit-learn
 
-# Methodology:
+### Methodology
   1.	Data gathering
   2.	Data cleaning
   
@@ -69,3 +70,37 @@ Note: Due to confidentiality, the sales data will not be included
 
   6.	Engage K-means Clustering
 
+### Analysis
+
+1. Choosing the number of clusters
+
+       According to the Elbow method and Silhouette score graph, the best number of clusters are either 3 or 4 under these considerations:
+          •	The inertia graph suggest that using more then 4 clusters reduce insignificant number of inertia.
+          •	The Silhouette score graph imply that more then 5 clusters greatly reduce the score.
+          •	Although using only 2 clusters produces a high Silhouette score, it also generate a great inertia.
+
+2. Comparing after-clustering result
+
+  Using 3 clusters results in these output:
+  
+        •	Customers are divided into 3 clusters: 
+          a.	Cluster 0 for recently purchasing, high frequency and spending customers.
+          b.	Cluster 1 for recently purchasing, low frequency, low spending customers. 
+          c.	Cluster 2 for inactive, low frequency, and low spending customers.
+
+  Meanwhile, using 4 clusters result in:
+  
+        •	Customers are grouped into 4 clusters:
+          a.	Cluster 0: recently buying, low frequency, low spending.
+          b.	Cluster 1: recently buying, low frequency, high spending.
+          c.	Cluster 2: haven’t buying for a while, low frequency, low-medium spending
+          d.	Cluster 3: low-medium recency, medium frequency, low-medium spending
+
+  Using 4 clusters provide a more detailed, smaller clusters than 3 clusters. 
+
+    According to the 3 clusters pairplot, some customers from cluster 2 spend as much as cluster 0, just not as recent
+    Using 4 clusters divide some of them into a new group
+    Because the result will be used as the base for targeted promotion campaign, those old high spenders are still appealing to target
+    Considering the data came from a small retail shop with limited marketing budget, high campaign efficiency is a priority
+
+  For those reasons, 4 clusters are the most ideal number for grouping the customers based on their behaviour
