@@ -74,12 +74,28 @@ Note: Due to confidentiality, the sales data will not be included
 
 1. Choosing the number of clusters
 
+Inertia score/elbow method chart:
+
+![Elbow method](images/elbow_method.png)
+
+Silhouette score chart:
+
+![Silhouette score](images/silhouette_score.png)
+
        According to the Elbow method and Silhouette score graph, the best number of clusters are either 3 or 4 under these considerations:
           •	The inertia graph suggest that using more then 4 clusters reduce insignificant number of inertia.
           •	The Silhouette score graph imply that more then 5 clusters greatly reduce the score.
           •	Although using only 2 clusters produces a high Silhouette score, it also generate a great inertia.
 
 2. Comparing after-clustering result
+
+Pairplot for 3 clusters:
+
+![3 Clusters Pairplot](images/pairplot_3_clusters.png)
+
+Pairplot for 4 clusters:
+
+![4 Clusters Pairplot](images/pairplot_4_clusters.png)
 
   Using 3 clusters results in these output:
   
